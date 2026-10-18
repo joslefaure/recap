@@ -1,0 +1,26 @@
+{
+  "image": [
+    "A photo of the class \"{label}\".",
+    "This image depicts the class \"{label}\".",
+    "Image class: \"{label}\".",
+    "The image belongs to the category \"{label}\"."
+  ],
+  "video": [
+    "A video showing the action \"{label}\".",
+    "This clip depicts the action \"{label}\".",
+    "Video action label: \"{label}\".",
+    "The activity in this video is \"{label}\"."
+  ],
+  "audio": [
+    "A recording of the sound \"{label}\".",
+    "This audio clip contains \"{label}\".",
+    "Audio event label: \"{label}\".",
+    "The sound category is \"{label}\"."
+  ],
+  "clevr": [
+    "A {label} is present.",
+    "A photo containing a {label}.",
+    "The scene shows a {label}.",
+    "A {label} can be seen in this image."
+  ]
+}

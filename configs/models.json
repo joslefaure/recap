@@ -1,0 +1,118 @@
+{
+  "gemma2": {
+    "repository": "google/embeddinggemma-2",
+    "revision": "914f7f89142e33e77833254d9c9b90c3cef7303b",
+    "widths": [
+      768,
+      512,
+      256,
+      128
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "video",
+      "audio"
+    ]
+  },
+  "qwen2b": {
+    "repository": "Qwen/Qwen3-VL-Embedding-2B",
+    "revision": "9f2f7e710d6d81056aa5c0a4f04764fec6bb7bda",
+    "widths": [
+      2048,
+      1024,
+      512,
+      256,
+      128,
+      64
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "video"
+    ]
+  },
+  "jina": {
+    "repository": "jinaai/jina-embeddings-v5-omni-small",
+    "revision": "5c54692f22e186fc12ea38a9193e3ff9e1cda2a3",
+    "widths": [
+      1024,
+      768,
+      512,
+      256,
+      128,
+      64,
+      32
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "video",
+      "audio"
+    ]
+  },
+  "ovis": {
+    "repository": "ATH-MaaS/Ovis-Omni-Embedding-3B",
+    "revision": "08547b8479edc10edc9878597438ebd076f74dff",
+    "widths": [
+      2048
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "video",
+      "audio"
+    ]
+  },
+  "omni23": {
+    "repository": "MBZUAI/Omni-Embed-Mini-2.3B",
+    "revision": "6a4a73c07da0bafed36686eb6543a25b1b194e5f",
+    "widths": [
+      2048,
+      1024,
+      512,
+      256,
+      128
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "video",
+      "audio"
+    ]
+  },
+  "omni09": {
+    "repository": "MBZUAI/Omni-Embed-Mini-0.9B",
+    "revision": "6aae5f51f5a3f8019852f01ea8a21d569edf288b",
+    "widths": [
+      1024,
+      512,
+      256,
+      128
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "video",
+      "audio"
+    ]
+  },
+  "qwen8b": {
+    "repository": "Qwen/Qwen3-VL-Embedding-8B",
+    "revision": "2c4565515e0f265c6511776e7193b22c0968ddc7",
+    "widths": [
+      4096,
+      2048,
+      1024,
+      512,
+      256,
+      128,
+      64
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "video"
+    ]
+  }
+}

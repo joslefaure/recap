@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>RECAP · Keep the vector. Change the decision.</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#listen">Skip to the sound demo</a>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="RECAP home"><span class="brand-mark">R</span> RECAP</a>
+  <nav aria-label="Page sections"><a href="#listen">Listen</a><a href="#transfer">Transfer</a><a href="#compress">Compress</a><a href="#limits">Limits</a><a href="../README.md">Code ↗</a></nav>
+</header>
+<main id="top">
+  <section class="hero" aria-labelledby="title">
+    <p class="eyebrow"><span class="dot"></span> A shared embedding space is not a shared decision space</p>
+    <h1 id="title">Keep the vector.<br><em>Change the decision.</em></h1>
+    <div class="hero-bottom"><p>What a frozen vector can support depends on how you read it. Hear the disagreement, switch the reader, then compress the same representation.</p><a class="primary-link" href="#listen">Start with a sound <span aria-hidden="true">↓</span></a></div>
+    <div class="status-line"><span>7 checkpoints</span><span>3 diagnostic axes</span><span>No encoder updates</span><span>Saved, held-out predictions</span></div>
+  </section>
+
+  <section id="listen" class="section" aria-labelledby="listen-title">
+    <div class="section-heading"><p class="section-number">01 / RECOVERABILITY</p><h2 id="listen-title">One sound. Four different wrong answers.</h2><p>Listen before revealing the label. The question is whether changing the reader can recover a label from the <em>same stored vectors</em>.</p></div>
+    <div class="listening-room">
+      <div class="sound-top"><span class="pill">ESC-50 · held-out clip</span><span class="mono">5 SECONDS / MONO</span></div>
+      <img class="waveform" src="assets/waveform.svg" width="960" height="120" alt="Amplitude waveform of a five-second environmental sound">
+      <div class="timeline" aria-hidden="true"><span>0 s</span><span>2.5 s</span><span>5 s</span></div>
+      <audio id="mystery-audio" controls preload="metadata" aria-label="Listen to the environmental sound"><source src="assets/can-opening.wav" type="audio/wav">Your browser cannot play this sound. <a href="assets/can-opening.wav">Download the WAV</a>.</audio>
+      <details id="audio-reveal" class="reveal">
+        <summary><span>Show the label and reader predictions</span><span class="reveal-icon" aria-hidden="true">+</span></summary>
+        <div class="reveal-content"><p class="ground-truth">Dataset label <strong id="audio-label">can opening</strong></p>
+          <div class="table-scroll"><table><caption class="sr-only">Predictions for the same held-out sound across four checkpoints</caption><thead><tr><th scope="col">Checkpoint</th><th scope="col">Selected text prompt</th><th scope="col">Nested logistic reader</th></tr></thead><tbody id="audio-predictions"></tbody></table></div>
+          <p class="room-note">Every displayed prediction agrees across all three held-out split seeds. The encoders and their vectors are unchanged. This sound can be ambiguous to a listener; the benchmark label is the scoring reference.</p>
+        </div>
+      </details>
+    </div>
+    <div class="evidence-line"><span class="small-label">Beyond this clip</span><p id="audio-population"></p><a href="../recap/protocols/recoverability.py">Reader protocol ↗</a></div>
+  </section>
+
+  <section id="transfer" class="section" aria-labelledby="transfer-title">
+    <div class="section-heading"><p class="section-number">02 / PORTABILITY</p><h2 id="transfer-title">A shared space needs a pathway check.</h2><p>Choose a target input. Then switch which modality trained the classifier. The target media and its frozen vector stay fixed.</p></div>
+    <div class="segmented" role="group" aria-label="Choose the fixed target input"><button type="button" data-target="video" aria-pressed="true">Watch a video</button><button type="button" data-target="audio" aria-pressed="false">Listen to audio</button></div>
+    <div class="transfer-grid">
+      <div class="target-card">
+        <div id="target-video"><video id="horse-video" controls muted playsinline preload="metadata" aria-label="Sixteen sampled frames from the held-out horse video"><source src="assets/horse.mp4" type="video/mp4"></video><p class="media-note">The 16 sampled frames, shown at 5 fps. Silent and slower than the source clip; this is the frame sequence, not native-rate playback.</p></div>
+        <div id="target-audio" hidden><div class="audio-symbol" aria-hidden="true">↝</div><audio id="guitar-audio" controls preload="none" aria-label="Held-out acoustic guitar recording"><source src="assets/guitar.wav" type="audio/wav"></audio><p class="media-note">Original held-out event audio. The reader always sees this same audio vector.</p></div>
+        <div class="target-caption"><span class="small-label">Target label</span><strong id="target-label">Horse</strong><span id="target-id" class="mono"></span></div>
+      </div>
+      <div class="decision-card">
+        <p class="small-label">Omni Mini 2.3B · logistic C = 1</p>
+        <h3>Train the reader on…</h3>
+        <div class="segmented reader-switch" role="group" aria-label="Reader training modality"><button type="button" data-reader="video" aria-pressed="true">Video</button><button type="button" data-reader="audio" aria-pressed="false">Audio</button></div>
+        <div id="transfer-decision" class="decision" aria-live="polite"><span class="small-label">Saved prediction</span><strong id="transfer-prediction">Horse</strong><span id="transfer-status" class="verdict">Correct on this example</span></div>
+        <p id="transfer-explanation" class="explanation"></p>
+        <div class="fixed-input"><span aria-hidden="true">↳</span> Reader changed. Input unchanged.</div>
+      </div>
+    </div>
+    <div class="evidence-line"><span class="small-label">All 402 test clips</span><p id="transfer-population"></p><a href="../recap/protocols/transfer.py">Transfer protocol ↗</a></div>
+  </section>
+
+  <section id="compress" class="section" aria-labelledby="compress-title">
+    <div class="section-heading"><p class="section-number">03 / COMPRESSION</p><h2 id="compress-title">Would you keep the same reader at 32D?</h2><p>A full-width recommendation can reverse after compression. Both readers use the same ObjectNet images and held-out folds; Ridge is refit at each width.</p></div>
+    <div class="compression-card">
+      <div class="compression-top"><div><span class="small-label">Jina · ObjectNet</span><h3 id="width-verdict">At full width, text prompts win.</h3></div><div class="segmented" role="group" aria-label="Embedding width"><button type="button" data-width="native" aria-pressed="true">1,024D</button><button type="button" data-width="minimum" aria-pressed="false">32D</button></div></div>
+      <div class="bar-chart" role="img" id="width-chart" aria-label="Reader balanced accuracy at the selected width">
+        <div class="bar-row"><span>Text prompt</span><div class="bar-track"><div id="prompt-bar" class="bar native"></div></div><strong id="prompt-score"></strong></div>
+        <div class="bar-row"><span>Fixed Ridge</span><div class="bar-track"><div id="ridge-bar" class="bar learned"></div></div><strong id="ridge-score"></strong></div>
+      </div>
+      <div class="compression-foot"><span id="width-gap" class="gap"></span><span>969 images · 103 classes · 3-seed means<br>Balanced accuracy (%) · Ridge α = 10</span></div>
+    </div>
+    <div class="evidence-line"><span class="small-label">Across checkpoints</span><p>The reversal occurs in all three Jina seeds. Other checkpoints remain prompt-dominant; compression does not universally favor a trained reader.</p><a href="../recap/protocols/compression.py">Endpoint protocol ↗</a></div>
+  </section>
+
+  <section id="limits" class="section" aria-labelledby="limits-title">
+    <div class="section-heading"><p class="section-number">04 / COUNTEREXAMPLES MATTER</p><h2 id="limits-title">A better reader still makes different mistakes.</h2><p>Two selected Jina examples from ObjectNet. The improvement on one image comes with a regression on another; all shown decisions agree across three seeds.</p></div>
+    <div class="image-pair" id="image-examples"></div>
+    <div class="selection-note"><strong>How these examples were chosen</strong><p>These are outcome-selected illustrations, not random samples or estimates of recovery rates. The audio clip was selected using consistent rescues on Gemma 2, Jina, and Omni Mini 0.9B; Omni Mini 2.3B is shown as additional context. AVE examples and the image regression are the first eligible items under their recorded prediction patterns. The cellphone rescue was visually selected from 156 consistent rescues to make the object and the wrong background-related label easy to see.</p><p>Full-manifest scores support the claims. These demonstrations show what an individual disagreement looks or sounds like. The page displays saved predictions; it does not run a model.</p><a href="examples.json">Example IDs, predictions, and selection rules ↗</a><a href="MEDIA.md">Media sources and attribution ↗</a></div>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title"><p class="section-number">TRY THE PROTOCOL</p><h2 id="closing-title">Make the reader part of the experiment.</h2><p>Run the diagnostics on cached vectors, then jointly select model, width, and reader under the same storage and label budgets.</p><p id="budget-summary" class="budget-summary"></p><div class="closing-links"><a class="primary-link" href="../docs/reproduce.md">Reproduce the paper ↗</a><a href="../recap/protocols/selection.py">Budgeted selection code ↗</a></div></section>
+</main>
+<footer><a class="brand" href="#top">RECAP</a><p>A Shared Embedding Space Is Not a Shared Decision Space</p><span>Static companion · no external scripts, fonts, or analytics</span></footer>
+<noscript><p class="no-script">Audio and video players work without JavaScript. Enable JavaScript for the reader switches, or inspect <a href="examples.json">the saved predictions</a>.</p></noscript>
+</body>
+</html>

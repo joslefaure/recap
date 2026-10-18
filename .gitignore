@@ -1,0 +1,15 @@
+data/
+embeddings/
+outputs/
+models/
+.venv/
+*.pt
+*.pth
+*.npy
+*.npz
+*.safetensors
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/

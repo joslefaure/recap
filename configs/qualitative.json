@@ -1,0 +1,69 @@
+{
+  "audio": "esc50/audio/1-101404-A-34.wav",
+  "horse": "ave/test/frames/AVE_test_--I2373YpgM/frame_07.jpg",
+  "images": [
+    {
+      "task": "ObjectNet",
+      "true_label": "safety pin",
+      "native_predictions": [
+        "nail (fastener)",
+        "nail (fastener)",
+        "nail (fastener)"
+      ],
+      "ridge_predictions": [
+        "safety pin",
+        "safety pin",
+        "safety pin"
+      ],
+      "image": "mmeb/ObjectNet/image_s0012375.jpg"
+    },
+    {
+      "task": "ObjectNet",
+      "true_label": "bath towel",
+      "native_predictions": [
+        "bath towel",
+        "bath towel",
+        "bath towel"
+      ],
+      "ridge_predictions": [
+        "dishrag or hand towel",
+        "dishrag or hand towel",
+        "dishrag or hand towel"
+      ],
+      "image": "mmeb/ObjectNet/image_s0006091.jpg"
+    },
+    {
+      "task": "Country211",
+      "true_label": "French Guiana",
+      "native_predictions": [
+        "Cambodia",
+        "Cambodia",
+        "Cambodia"
+      ],
+      "ridge_predictions": [
+        "French Guiana",
+        "French Guiana",
+        "French Guiana"
+      ],
+      "image": "mmeb/Country211/image_s0006873.jpg"
+    },
+    {
+      "task": "Country211",
+      "true_label": "Maldives",
+      "native_predictions": [
+        "Maldives",
+        "Maldives",
+        "Maldives"
+      ],
+      "ridge_predictions": [
+        "French Polynesia",
+        "French Polynesia",
+        "French Polynesia"
+      ],
+      "image": "mmeb/Country211/image_s0013243.jpg"
+    }
+  ],
+  "audio_truth": "can opening",
+  "audio_prompt_prediction": "sneezing",
+  "audio_reader_prediction": "can opening"
+}

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "recap-diagnostics"
+version = "0.1.0"
+description = "A shared embedding space is not a shared decision space"
+requires-python = ">=3.10,<3.13"
+dependencies = ["numpy==2.2.6", "scipy>=1.14,<2", "scikit-learn==1.7.2", "matplotlib>=3.9,<4", "pillow>=10.4,<13", "threadpoolctl>=3.5,<4"]
+
+[project.optional-dependencies]
+encode = ["torch==2.8.0", "torchvision==0.23.0", "torchaudio==2.8.0", "transformers==5.19.0", "sentence-transformers==6.1.0", "accelerate>=1.10,<2", "huggingface-hub>=1.31,<2", "librosa==0.11.0", "soundfile>=0.13,<0.14", "sentencepiece>=0.2,<0.3", "protobuf>=5,<7", "dasheng==0.0.9", "einops==0.8.2", "pytorch-ignite==0.5.5", "qwen-vl-utils==0.0.14", "av==12.3.0"]
+
+[tool.setuptools.packages.find]
+include = ["recap*", "configs"]
+
+[tool.setuptools.package-data]
+configs = ["*.json"]
