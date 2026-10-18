@@ -1,6 +1,6 @@
 # Reproduce the paper
 
-[← Overview](../README.md) · [Interactive examples](../demo/README.md) · [Data and splits](../splits/README.md)
+[← Overview](../README.md) · [Interactive examples](https://anonymous.4open.science/w/recap-975C/demo/) · [Data and splits](../splits/README.md)
 
 Run all commands from the repository root. This guide preserves the checkpoint settings, folds, and candidate sets used for the paper.
 

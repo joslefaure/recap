@@ -6,11 +6,11 @@
 
 **Frozen vectors. Different readers. Different decisions.**
 
-[Listen & explore](demo/README.md) · [Quickstart](#quickstart) · [Reproduce the paper](docs/reproduce.md) · [Data & splits](splits/README.md) · [Browse the code](#find-your-way)
+[▶ Interactive demo](https://anonymous.4open.science/w/recap-975C/demo/) · [Quickstart](#quickstart) · [Reproduce the paper](docs/reproduce.md) · [Data & splits](splits/README.md) · [Browse the code](#find-your-way)
 
 </div>
 
-[![Three RECAP diagnostics: Jina's reader ranking reverses under compression; a learned reader recovers sound labels from frozen Gemma vectors; an AVE video reader fails when trained on audio.](docs/assets/overview.svg)](demo/README.md)
+[![Three RECAP diagnostics: Jina's reader ranking reverses under compression; a learned reader recovers sound labels from frozen Gemma vectors; an AVE video reader fails when trained on audio.](docs/assets/overview.svg)](https://anonymous.4open.science/w/recap-975C/demo/)
 
 An embedding benchmark tells you how a particular reader performs. RECAP asks what changes when you compress the vector, train the reader in another modality, or fit it on task labels. We keep the encoders frozen and evaluate the reader on the same held-out inputs.
 
@@ -18,16 +18,13 @@ An embedding benchmark tells you how a particular reader performs. RECAP asks wh
 
 **One five-second sound.** Four checkpoints' selected text prompts predict *clapping*, *sneezing*, *glass breaking*, and *crackling fire*. Their learned readers all recover the dataset label from the same stored vectors.
 
-[![Waveform of the five-second sound. Open the media demo to listen and reveal the saved reader predictions.](demo/assets/waveform.svg)](demo/README.md)
+[![Waveform of the five-second sound. Open the media demo to listen and reveal the saved reader predictions.](demo/assets/waveform.svg)](https://anonymous.4open.science/w/recap-975C/demo/)
 
-The [interactive companion](demo/README.md) lets you listen before revealing the answer, switch between audio-trained and video-trained readers on a fixed input, and watch compression reverse a reader recommendation. It also includes an image rescue **and a regression**.
+The [interactive companion](https://anonymous.4open.science/w/recap-975C/demo/) lets you listen before revealing the answer, switch between audio-trained and video-trained readers on a fixed input, and watch compression reverse a reader recommendation. It also includes an image rescue **and a regression**.
 
-```bash
-python -m http.server 8000 --bind 127.0.0.1
-# Open http://localhost:8000/demo/
-```
+**[▶ Open the interactive demo — audio, video, and images](https://anonymous.4open.science/w/recap-975C/demo/)**
 
-No installation, GPU, model download, or network connection is needed to use the demo. The media and saved predictions are bundled; the page runs locally. Examples are deliberately outcome-selected illustrations. Aggregate claims come from complete evaluation sets.
+No installation, GPU, or model download is needed. Examples are deliberately outcome-selected illustrations; aggregate claims come from complete evaluation sets. [Demo details and example selection](demo/README.md).
 
 ## Quickstart
 
@@ -56,7 +53,7 @@ The panel covers seven released checkpoints across five families. Natural recogn
 
 | If you want to… | Open |
 | --- | --- |
-| Listen, watch, and inspect individual reader disagreements | [Media companion](demo/README.md) |
+| Listen, watch, and inspect individual reader disagreements | [Media companion](https://anonymous.4open.science/w/recap-975C/demo/) |
 | Install dependencies or rerun a paper experiment | [Reproduction guide](docs/reproduce.md) |
 | Find checkpoint IDs, revisions, and supported widths | [Checkpoint registry](configs/models.json) |
 | Obtain media and understand the exact input sets | [Data & split guide](splits/README.md) |

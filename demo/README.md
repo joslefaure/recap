@@ -2,13 +2,7 @@
 
 [← Repository overview](../README.md) · [Reproduce the paper](../docs/reproduce.md) · [Example predictions](examples.json)
 
-A small, offline companion to RECAP. Start the server from the repository root:
-
-```bash
-python -m http.server 8000 --bind 127.0.0.1
-```
-
-Open **[localhost:8000/demo/](http://localhost:8000/demo/)**. You can also open [index.html](index.html) directly in a browser. GitHub displays HTML source rather than running the page, so use the local server for the interactive version.
+**[▶ Open the interactive demo](https://anonymous.4open.science/w/recap-975C/demo/)** — audio, video, images, and reader switches work directly in your browser.
 
 | Try this | What to notice |
 | --- | --- |
@@ -21,10 +15,4 @@ Everything shown is a saved held-out result. The page has no inference server, A
 
 The examples are outcome-selected. [examples.json](examples.json) records the IDs, predictions, and selection rules; [MEDIA.md](MEDIA.md) records sources and display transformations. Population-level evidence is kept separate from the examples.
 
-To rebuild the overview, waveform, presentation media, and browser data from the prepared benchmark files:
-
-```bash
-uv run python scripts/build_demo.py --data-root data
-```
-
-This uses the existing evaluation outputs and local media. It neither loads a checkpoint nor fits a reader. Rebuilding the video preview also requires FFmpeg. Omit `--data-root` to regenerate only the overview and numerical browser data.
+[Media attribution](MEDIA.md) · [Asset build script](../scripts/build_demo.py)
